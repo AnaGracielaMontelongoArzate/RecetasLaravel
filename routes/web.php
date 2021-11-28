@@ -34,7 +34,16 @@ Route::get('/', function () {
 Route::get('/recetas', "RecetaController@index")->name("recetas.index");
 Route::get('/recetas/create', "RecetaController@create")->name("recetas.create");
 Route::post('/recetas', "RecetaController@store")->name("recetas.store");
+Route::get('/recetas/{receta}', "RecetaController@show")->name("recetas.show");
+Route::get('/recetas/{receta}/edit', "RecetaController@edit")->name("recetas.edit");
+Route::put('/recetas/{receta}', "RecetaController@update")->name("recetas.update");
+Route::delete('/recetas/{receta}', "RecetaController@destroy")->name("recetas.destroy");
 
+Route::get('/perfiles/{perfil}', "PerfilController@show")->name("perfiles.show");
+Route::get('/perfiles/{perfil}/edit', "PerfilController@edit")->name("perfiles.edit");
+Route::put('/perfiles/{perfil}', "PerfilController@update")->name("perfiles.update");
+
+//Route::delete('/perfiles/{perfil}', "PerfilController@destroy")->name("perfiles.destroy");
 
 Auth::routes();
 
