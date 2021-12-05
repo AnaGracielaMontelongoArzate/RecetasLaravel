@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Perfil;
+use App\Receta;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth",["except"=>"show"]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +52,9 @@ class PerfilController extends Controller
      */
     public function show(Perfil $perfil)
     {
-        return view("perfiles.show", compact("perfil"));
+        //Obtener las recetas con paginación
+        $recetas = Receta::where("user_id", $perfil->user_id)->paginate(10);
+        return view("perfiles.show", compact("perfil", "recetas"));
     }
 
     /**
@@ -58,6 +65,8 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
+        // Ejecutamos el Policy
+        $this->authorize("view",$perfil);
         return view("perfiles.edit", compact("perfil"));
     }
 
@@ -70,6 +79,9 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
+        // Ejecutamos el Policy
+        $this->authorize("update",$perfil);
+
         //Validacion de los datos.
         $data = request()->validate([
             "nombre" => "required",

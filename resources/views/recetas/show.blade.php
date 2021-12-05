@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('botones')
-<a href="{{route("recetas.index")}}" class="btn btn-primary mr-2 text-white">Volver</a>
+    @include('ui.Volver')
 @endsection
 
 @section('content')

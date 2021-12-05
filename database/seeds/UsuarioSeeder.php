@@ -20,7 +20,7 @@ class UsuarioSeeder extends Seeder
             "password"=>Hash::make("123456789"),
             "url"=>"http://Hola.com",
         ]);
-        $user->perfil()->create();
+        //$user->perfil()->create();
 
         $user2 = User::create([
             "name"=>"Anita2",
@@ -28,6 +28,6 @@ class UsuarioSeeder extends Seeder
             "password"=>Hash::make("123456789"),
             "url"=>"http://Hola.com",
         ]);
-        $user2->perfil()->create();
+        //$user2->perfil()->create();
     }
 }
