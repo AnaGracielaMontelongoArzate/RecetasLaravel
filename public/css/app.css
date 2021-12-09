@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap);@import url(https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Fredoka+One&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap);@import url(https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Fredoka+One&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -34,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Fuzzy Bubbles", cursive;
+  --font-family-sans-serif: "Patrick Hand", cursive;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -66,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Fuzzy Bubbles", cursive;
+  font-family: "Patrick Hand", cursive;
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 1;
@@ -6407,7 +6407,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Fuzzy Bubbles", cursive;
+  font-family: "Patrick Hand", cursive;
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -6532,7 +6532,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Fuzzy Bubbles", cursive;
+  font-family: "Patrick Hand", cursive;
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -10951,7 +10951,7 @@ trix-editor {
 
 .bg-primary .navbar-brand {
   color: white;
-  font-family: "Fuzzy Bubbles", cursive;
+  font-family: "Patrick Hand", cursive;
   font-size: 2rem;
 }
 
@@ -10961,5 +10961,61 @@ trix-editor {
 
 .icono {
   width: 30px;
+}
+
+.like-btn {
+  display: inline-block;
+  Cursor: pointer;
+  width: 80px;
+  height: 80px;
+}
+
+.like-btn {
+  background: url("https://i.ibb.co/vw78mf3/heart.png") no-repeat 0% 50%;
+  background-size: 2900%;
+}
+
+.like-active {
+  -webkit-animation-name: animate;
+          animation-name: animate;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.like-active {
+  -webkit-animation-timing-function: steps(28);
+          animation-timing-function: steps(28);
+}
+
+@-webkit-keyframes animate {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: right;
+  }
 }
 

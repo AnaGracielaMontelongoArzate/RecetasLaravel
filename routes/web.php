@@ -3,6 +3,7 @@
 use App\Receta;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,9 @@ Route::get('/perfiles/{perfil}/edit', "PerfilController@edit")->name("perfiles.e
 Route::put('/perfiles/{perfil}', "PerfilController@update")->name("perfiles.update");
 
 //Route::delete('/perfiles/{perfil}', "PerfilController@destroy")->name("perfiles.destroy");
+
+// Almacena los likes de las recetas
+Route::post('/recetas/{receta}', 'LikesController@update')->name('likes.update');
 
 Auth::routes();
 
