@@ -5,6 +5,7 @@
  */
 import 'sweetalert2/dist/sweetalert2.min.css';
 import VueSweetalert2 from "vue-Sweetalert2";
+import 'owl.carousel'
 
 require('./bootstrap');
 
@@ -41,6 +42,24 @@ const app = new Vue({
     el: '#app',
 });
 
-$('.like-btn').on('click', function() {
-    $(this).toggleClass('like-active');
+/*** Carousel con OWL */
+
+jQuery(document).ready(function() {
+    jQuery('.owl-carousel').owlCarousel({
+        margin:10,
+        loop: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        responsive: {
+            0 : {
+                items: 1
+            }, 
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    });
 });

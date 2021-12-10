@@ -16,41 +16,30 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('/', 'InicioController@index')->name('inicio.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/recetas', 'RecetaController@index' )->name('recetas.index');
+Route::get('/recetas/create', 'RecetaController@create' )->name('recetas.create');
+Route::post('/recetas', 'RecetaController@store' )->name('recetas.store');
+Route::get('/recetas/{receta}', 'RecetaController@show' )->name('recetas.show');
+Route::get('/recetas/{receta}/edit', 'RecetaController@edit')->name('recetas.edit');
+Route::put('/recetas/{receta}', 'RecetaController@update')->name('recetas.update');
+Route::delete('/recetas/{receta}', 'RecetaController@destroy')->name('recetas.destroy');
+
+Route::get('/categoria/{categoriaReceta}', 'CategoriasController@show')->name('categorias.show');
+
+// Buscador de Recetas
+Route::get('/buscar', 'RecetaController@search')->name('buscar.show');
+
+// Route::resource('recetas', 'RecetaController');
+
+Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
+Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
+Route::put('/perfiles/{perfil}', 'PerfilController@update')->name('perfiles.update');
 
 
-/*
-Route::get('/', function () {
-    return view('nosotros');
-});
-*/
-
-//Route::get('/nosotros', "RecetaController@hola");
-
-//Route::get('/nosotros', "RecetaController");
-
-Route::get('/recetas', "RecetaController@index")->name("recetas.index");
-Route::get('/recetas/create', "RecetaController@create")->name("recetas.create");
-Route::post('/recetas', "RecetaController@store")->name("recetas.store");
-Route::get('/recetas/{receta}', "RecetaController@show")->name("recetas.show");
-Route::get('/recetas/{receta}/edit', "RecetaController@edit")->name("recetas.edit");
-Route::put('/recetas/{receta}', "RecetaController@update")->name("recetas.update");
-Route::delete('/recetas/{receta}', "RecetaController@destroy")->name("recetas.destroy");
-
-//Route::resource('recetas', "RecetaController");
-
-Route::get('/perfiles/{perfil}', "PerfilController@show")->name("perfiles.show");
-Route::get('/perfiles/{perfil}/edit', "PerfilController@edit")->name("perfiles.edit");
-Route::put('/perfiles/{perfil}', "PerfilController@update")->name("perfiles.update");
-
-//Route::delete('/perfiles/{perfil}', "PerfilController@destroy")->name("perfiles.destroy");
 
 // Almacena los likes de las recetas
 Route::post('/recetas/{receta}', 'LikesController@update')->name('likes.update');
 
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
